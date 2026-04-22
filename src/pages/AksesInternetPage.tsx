@@ -712,7 +712,7 @@ export default function AksesInternetPage() {
         {/* Kualitas berdasarkan Utilitas */}
         <Card className="border-0 shadow-sm">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base font-bold">Persentase Kualitas Internet berdasarkan Utilitas</CardTitle>
+            <CardTitle className="text-base font-bold">Kualitas Internet berdasarkan Utilitas</CardTitle>
             <CardDescription>Distribusi kualitas akses per tingkat utilitas</CardDescription>
           </CardHeader>
           <CardContent>
