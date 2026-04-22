@@ -374,6 +374,7 @@ export default function AksesInternetPage() {
 
     const matchSearch =
       r.namaLokasi.toLowerCase().includes(keyword) ||
+      r.provinsi.toLowerCase().includes(keyword) ||
       r.kabupaten.toLowerCase().includes(keyword) ||
       r.kecamatan.toLowerCase().includes(keyword);
 
@@ -1083,7 +1084,7 @@ export default function AksesInternetPage() {
                 <div className="relative w-64">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
-                    placeholder="Cari lokasi, kabupaten, kecamatan ..."
+                    placeholder="Cari lokasi, provinsi, kabupaten, kecamatan ..."
                     value={search}
                     onChange={(e) => {
                       setSearch(e.target.value);
@@ -1113,6 +1114,7 @@ export default function AksesInternetPage() {
                 <TableRow>
 
                   <TableHead>Lokasi</TableHead>
+                  <TableHead>Provinsi</TableHead>
                   <TableHead>Kabupaten</TableHead>
                   <TableHead>Kecamatan</TableHead>
 
@@ -1253,6 +1255,7 @@ export default function AksesInternetPage() {
                   <TableRow key={i}>
 
                     <TableCell>{r.namaLokasi}</TableCell>
+                    <TableCell>{r.provinsi}</TableCell>
                     <TableCell>{r.kabupaten}</TableCell>
                     <TableCell>{r.kecamatan}</TableCell>
 
@@ -1289,7 +1292,7 @@ export default function AksesInternetPage() {
 
                     <TableCell>{r.rekomendasi}</TableCell>
                     <TableCell>{r.skema}</TableCell>
-
+                    
                     <TableCell>{r.tools}</TableCell>
                     <TableCell>{r.layananAiMandiri}</TableCell>
                     <TableCell>{r.layananAiGanda}</TableCell>
