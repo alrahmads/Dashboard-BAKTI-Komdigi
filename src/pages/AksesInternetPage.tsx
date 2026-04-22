@@ -235,7 +235,7 @@ export default function AksesInternetPage() {
     const kabData = Object.entries(kabMap)
       .map(([name, v]) => ({ name, ...v, total: v.tinggi + v.sedang + v.rendah }))
       .sort((a, b) => b.total - a.total)
-      .slice(0, 15);
+      .slice(0, 10);
 
     // Rekomendasi wilker
     const rekomMap: Record<string, number> = {};
@@ -735,7 +735,7 @@ export default function AksesInternetPage() {
         <Card className="border-0 shadow-sm">
           <CardHeader className="pb-2">
             <CardTitle className="text-base font-bold">Jumlah Lokasi menurut Kabupaten dan Utilitas</CardTitle>
-            <CardDescription>Top 15 kabupaten berdasarkan jumlah lokasi</CardDescription>
+            <CardDescription>Top 10 kabupaten berdasarkan jumlah lokasi</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={400}>
