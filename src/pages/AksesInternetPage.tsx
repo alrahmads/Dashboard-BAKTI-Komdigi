@@ -206,7 +206,7 @@ export default function AksesInternetPage() {
     // Technology
     const techMap: Record<string, number> = {};
 
-    allAkses.forEach((r) => {
+    data.forEach((r) => {
       // ❗ skip kalau kosong
       if (!r.teknologi || r.teknologi.trim() === "") return;
 
