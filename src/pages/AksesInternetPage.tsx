@@ -205,8 +205,21 @@ export default function AksesInternetPage() {
 
     // Technology
     const techMap: Record<string, number> = {};
-    data.forEach((r) => { techMap[r.teknologi] = (techMap[r.teknologi] || 0) + 1; });
-    const techData = Object.entries(techMap).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
+
+    allAkses.forEach((r) => {
+      // ❗ skip kalau kosong
+      if (!r.teknologi || r.teknologi.trim() === "") return;
+
+      techMap[r.teknologi] = (techMap[r.teknologi] || 0) + 1;
+    });
+
+    const techData = Object.entries(techMap)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a, b) => b.value - a.value);
+
+    // const techMap: Record<string, number> = {};
+    // data.forEach((r) => { techMap[r.teknologi] = (techMap[r.teknologi] || 0) + 1; });
+    // const techData = Object.entries(techMap).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
 
     // Kabupaten + utilitas
     const kabMap: Record<string, { tinggi: number; sedang: number; rendah: number }> = {};
@@ -872,13 +885,31 @@ export default function AksesInternetPage() {
               <CardTitle className="text-base font-bold">Teknologi Akses Internet</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={220}>
-                <BarChart data={stats.techData}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
+              <ResponsiveContainer width="100%" height={320}>
+                <BarChart
+                  data={stats.techData}
+                  layout="vertical"
+                  margin={{ top: 10, right: 20, left: 20, bottom: 10 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+
+                  <XAxis type="number" tick={{ fontSize: 11 }} />
+
+                  <YAxis
+                    type="category"
+                    dataKey="name"
+                    width={130}
+                    tick={{ fontSize: 12 }}
+                  />
+
                   <Tooltip />
-                  <Bar dataKey="value" fill={PRIMARY} radius={[6, 6, 0, 0]} />
+
+                  <Bar
+                    dataKey="value"
+                    fill={PRIMARY}
+                    radius={[0, 6, 6, 0]}
+                    barSize={18}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
