@@ -123,9 +123,12 @@ export default function AksesInternetPage() {
     const toolsMap: Record<string, any> = {};
 
     data.forEach((r) => {
-      if (!r.tools) return;
+      const rawTool = r.tools?.trim();
 
-      const t = r.tools.trim().toLowerCase(); // gabung nperf & Nperf
+      // skip kosong / dash / null
+      if (!rawTool || rawTool === "-" || rawTool.toLowerCase() === "null") return;
+
+      const t = rawTool.toLowerCase();
 
       if (!toolsMap[t]) {
         toolsMap[t] = {
