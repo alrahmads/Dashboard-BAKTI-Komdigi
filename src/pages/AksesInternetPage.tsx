@@ -125,12 +125,14 @@ export default function AksesInternetPage() {
     data.forEach((r) => {
       if (!r.tools) return;
 
-      const t = r.tools;
+      const t = r.tools.trim().toLowerCase(); // gabung nperf & Nperf
 
       if (!toolsMap[t]) {
         toolsMap[t] = {
-          dl1: 0, ul1: 0,
-          dl2: 0, ul2: 0,
+          dl1: 0,
+          ul1: 0,
+          dl2: 0,
+          ul2: 0,
           count: 0,
         };
       }
@@ -143,7 +145,10 @@ export default function AksesInternetPage() {
     });
 
     const toolsSpeedData = Object.entries(toolsMap).map(([name, v]) => ({
-      name,
+      name:
+        name === "nperf"
+          ? "Nperf"
+          : name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(),
       "Download AP1": +(v.dl1 / v.count).toFixed(2),
       "Upload AP1": +(v.ul1 / v.count).toFixed(2),
       "Download AP2": +(v.dl2 / v.count).toFixed(2),
