@@ -81,7 +81,7 @@ export default function OverviewPage() {
 
     // 🟢 BUMDes per Provinsi
     const provBumdesMap: Record<string, number> = {};
-    allBumdes.forEach((r) => {
+    latestBumdesData.forEach((r) => {
       provBumdesMap[r.provinsi] = (provBumdesMap[r.provinsi] || 0) + 1;
     });
 
@@ -95,7 +95,7 @@ export default function OverviewPage() {
       if (!provCount[r.provinsi]) provCount[r.provinsi] = { akses: 0, bumdes: 0 };
       provCount[r.provinsi].akses++;
     });
-    allBumdes.forEach((r) => {
+    latestBumdesData.forEach((r) => {
       if (r.provinsi) {
         if (!provCount[r.provinsi]) provCount[r.provinsi] = { akses: 0, bumdes: 0 };
         provCount[r.provinsi].bumdes++;
@@ -106,7 +106,7 @@ export default function OverviewPage() {
       .sort((a, b) => b.akses - a.akses);
 
     const warnMap: Record<string, number> = {};
-    allBumdes.forEach((b) => { warnMap[b.warningLevel] = (warnMap[b.warningLevel] || 0) + 1; });
+    latestBumdesData.forEach((b) => { warnMap[b.warningLevel] = (warnMap[b.warningLevel] || 0) + 1; });
     const warnData = Object.entries(warnMap).map(([name, value]) => ({ name, value }));
 
     const techMap: Record<string, number> = {};
@@ -123,7 +123,7 @@ export default function OverviewPage() {
       .sort((a, b) => b.value - a.value);
 
     const ispMap: Record<string, number> = {};
-    allBumdes.forEach((b) => {
+    latestBumdesData.forEach((b) => {
       if (b.isp) ispMap[b.isp.trim()] = (ispMap[b.isp.trim()] || 0) + 1;
     });
     const ispData = Object.entries(ispMap)
@@ -131,7 +131,7 @@ export default function OverviewPage() {
       .sort((a, b) => b.value - a.value);
 
     return { totalAkses, totalBumdes, servingBumdes, warningBumdes, totalPelanggan, utilData, provData, provAksesData, provBumdesData, warnData, techData, ispData, tinggi, sedang, rendah };
-  }, [allAkses, allBumdes]); // ✅ dependency array yang benar
+  }, [allAkses, latestBumdesData]); // ✅ dependency array yang benar
 
   // ... sisa JSX tidak berubah
 
