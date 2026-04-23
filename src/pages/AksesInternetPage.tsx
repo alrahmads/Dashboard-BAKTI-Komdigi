@@ -409,7 +409,7 @@ export default function AksesInternetPage() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard title="Total Lokasi Layanan" value={stats.total} icon={Wifi} change={+stats.changePctTotal.toFixed(1)} variant="accent" />
+          <StatCard title="Total Lokasi Layanan Termonitoring" value={stats.total} icon={Wifi} change={+stats.changePctTotal.toFixed(1)} variant="accent" />
           <StatCard title="Rata-rata Bandwidth" value={`${stats.avgBw.toFixed(2)} Mbps`} icon={Activity} change={+stats.changePctBw.toFixed(1)} variant="primary" />
           <StatCard title="Rata-rata Download AP 1" value={`${stats.avgDl.toFixed(2)} Kbps`} icon={Download} change={+stats.changePctDl.toFixed(1)} variant="secondary" />
           <StatCard title="Rata-rata Upload AP 1" value={`${stats.avgUl.toFixed(2)} Kbps`} icon={TrendingUp} change={+stats.changePctUl.toFixed(1)} variant="warning" />
