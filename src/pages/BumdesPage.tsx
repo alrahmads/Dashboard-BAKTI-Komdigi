@@ -388,8 +388,8 @@ export default function BumdesPage() {
     <DashboardLayout>
       <div className="space-y-6 animate-fade-in">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight">Data BUMDes</h1>
-          <p className="text-sm text-muted-foreground">Monitoring Badan Usaha Milik Desa — Early Warning System</p>
+          <h1 className="text-2xl font-extrabold tracking-tight">Program Konektivitas Mandiri - Wilayah Kerja IV Surabaya</h1>
+          <p className="text-sm text-muted-foreground">Data Monitoring Program Konektivitas Mandiri BAKTI KOMDIGI</p>
         </div>
 
         {/* Tab navigation */}

@@ -143,8 +143,8 @@ export default function OverviewPage() {
     <DashboardLayout>
       <div className="space-y-6 animate-fade-in">
         <div>
-          <h1 className="text-2xl font-extrabold tracking-tight">Overview Dashboard</h1>
-          <p className="text-sm text-muted-foreground">Ringkasan data akses internet dan BUMDes — BAKTI KOMDIGI</p>
+          <h1 className="text-2xl font-extrabold tracking-tight">Overview Dashboard - Wilayah Kerja IV Surabaya</h1>
+          <p className="text-sm text-muted-foreground">Ringkasan Data Program Penyediaan Akses Internet BAKTI KOMDIGI & Program Konektivitas Mandiri</p>
         </div>
 
         {/* Stats Row */}

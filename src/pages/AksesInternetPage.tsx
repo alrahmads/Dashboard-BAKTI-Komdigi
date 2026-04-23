@@ -400,8 +400,8 @@ export default function AksesInternetPage() {
       <div className="space-y-6 animate-fade-in">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-extrabold tracking-tight">Monitoring Akses Internet</h1>
-            <p className="text-sm text-muted-foreground">Data monitoring & evaluasi layanan akses internet</p>
+            <h1 className="text-2xl font-extrabold tracking-tight">Monitoring Akses Internet - Wilayah Kerja IV Surabaya</h1>
+            <p className="text-sm text-muted-foreground">Data Monitoring & Evaluasi Penyediaan Layanan Akses Internet BAKTI KOMDIGI</p>
           </div>
         </div>
 

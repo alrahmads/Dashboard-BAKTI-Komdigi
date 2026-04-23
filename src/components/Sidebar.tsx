@@ -15,7 +15,7 @@ import baktiLogo from "@/assets/bakti-komdigi-logo.png";
 const menuItems = [
   { title: "Overview", path: "/", icon: LayoutDashboard },
   { title: "Akses Internet", path: "/akses-internet", icon: Wifi },
-  { title: "BUMDes", path: "/bumdes", icon: Building2 },
+  { title: "Program Konektivitas Mandiri", path: "/bumdes", icon: Building2 },
   { title: "Notifikasi", path: "/notifikasi", icon: Bell },
 ];
 
@@ -117,7 +117,7 @@ export function Sidebar({
 
         {!collapsed && (
           <p className="mt-2 text-center text-[10px] text-muted-foreground">
-            © 2026 BAKTI KOMDIGI
+            © 2026 BAKTI - Wilayah Kerja IV Surabaya
           </p>
         )}
       </div>
