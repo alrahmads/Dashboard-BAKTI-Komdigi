@@ -41,19 +41,30 @@ export function Sidebar({
         collapsed ? "w-[72px]" : "w-[260px]"
       )}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-3 border-b border-sidebar-border px-4 py-4">
-        <Link to="/">
-          <img
-            src={baktiLogo}
-            alt="BAKTI KOMDIGI"
-            className={cn(
-              "object-contain transition-all cursor-pointer",
-              collapsed ? "h-10 w-10" : "h-14 w-auto max-w-[180px]"
-            )}
-          />
-        </Link>
-      </div>
+    {/* Logo */}
+    <div
+      className={cn(
+        "border-b border-sidebar-border px-4 py-4",
+        collapsed ? "flex justify-center" : "flex flex-col items-start"
+      )}
+    >
+      <Link to="/" className="w-full">
+        <img
+          src={baktiLogo}
+          alt="BAKTI KOMDIGI"
+          className={cn(
+            "object-contain transition-all cursor-pointer",
+            collapsed ? "h-10 w-10 mx-auto" : "h-14 w-auto max-w-[180px]"
+          )}
+        />
+      </Link>
+
+      {!collapsed && (
+        <p className="mt-2 text-[13px] leading-tight font-semibold text-muted-foreground">
+          Wilayah Kerja IV Surabaya
+        </p>
+      )}
+    </div>
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto px-3 py-4 scrollbar-thin">
