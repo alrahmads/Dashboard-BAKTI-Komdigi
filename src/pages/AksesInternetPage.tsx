@@ -1034,19 +1034,61 @@ export default function AksesInternetPage() {
         {/* Rata-rata BW/DL/UL per Utilitas */}
         <Card className="border-0 shadow-sm">
           <CardHeader className="pb-2">
-            <CardTitle className="text-base font-bold">Rata-rata Bandwidth, Download, dan Upload Berdasarkan Utilitas</CardTitle>
+            <CardTitle className="text-base font-bold">Rata-rata Bandwidth, Download (AP1), dan Upload (AP1) Berdasarkan Utilitas</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={280}>
               <BarChart data={stats.avgByUtil}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
+
                 <XAxis dataKey="name" tick={{ fontSize: 12 }} />
-                <YAxis tick={{ fontSize: 11 }} />
-                <Tooltip />
+
+                <YAxis
+                  tick={{ fontSize: 11 }}
+                  tickFormatter={(value) => `${value}`}
+                />
+
+                <Tooltip
+                  formatter={(value: number, name: string) => {
+                    if (name === "Bandwidth") return [`${value} Mbps`, name];
+                    return [`${value} Kbps`, name];
+                  }}
+                />
+
                 <Legend />
-                <Bar dataKey="Bandwidth" fill={PRIMARY} radius={[4, 4, 0, 0]} />
-                <Bar dataKey="Download" fill={ACCENT} radius={[4, 4, 0, 0]} />
-                <Bar dataKey="Upload" fill={SECONDARY} radius={[4, 4, 0, 0]} />
+
+                <Bar
+                  dataKey="Bandwidth"
+                  fill={PRIMARY}
+                  radius={[4, 4, 0, 0]}
+                  label={{
+                    position: "top",
+                    formatter: (v: number) => `${v} Mbps`,
+                    fontSize: 11
+                  }}
+                />
+
+                <Bar
+                  dataKey="Download"
+                  fill={ACCENT}
+                  radius={[4, 4, 0, 0]}
+                  label={{
+                    position: "top",
+                    formatter: (v: number) => `${v} Kbps`,
+                    fontSize: 11
+                  }}
+                />
+
+                <Bar
+                  dataKey="Upload"
+                  fill={SECONDARY}
+                  radius={[4, 4, 0, 0]}
+                  label={{
+                    position: "top",
+                    formatter: (v: number) => `${v} Kbps`,
+                    fontSize: 11
+                  }}
+                />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
