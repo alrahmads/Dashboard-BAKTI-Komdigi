@@ -193,7 +193,7 @@ export default function OverviewPage() {
 
           <Card className="border-0 shadow-sm">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base font-bold">Status Early Warning BUMDes</CardTitle>
+              <CardTitle className="text-base font-bold">Status Early Warning Mitra Konektivitas Mandiri</CardTitle>
               <CardDescription>Monitoring masa berlaku kontrak</CardDescription>
             </CardHeader>
             <CardContent>
@@ -248,7 +248,7 @@ export default function OverviewPage() {
           <Card className="border-0 shadow-sm">
             <CardHeader className="pb-2">
               <CardTitle className="text-base font-bold">
-                Distribusi BUMDes per Provinsi
+                Distribusi Mitra Konektivitas Mandiri per Provinsi
               </CardTitle>
             </CardHeader>
             <CardContent>

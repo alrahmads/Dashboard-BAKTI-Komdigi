@@ -432,7 +432,7 @@ export default function BumdesPage() {
           <div onClick={scrollToTable} className="cursor-pointer h-full">
             <StatCard
               className="h-full"
-              title="BUMDes/Badan Usaha"
+              title="Mitra Konektivitas Mandiri"
               value={stats.total}
               icon={Building2}
               variant="primary"
@@ -518,7 +518,7 @@ export default function BumdesPage() {
               <Card className="border-0 shadow-sm">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-bold">Persentase Status Warning</CardTitle>
-                  <CardDescription>Distribusi masa kontrak BUMDes</CardDescription>
+                  <CardDescription>Distribusi masa kontrak Mitra Konektivitas Mandiri</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -553,7 +553,7 @@ export default function BumdesPage() {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <Card className="border-0 shadow-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-bold">BUMDes per ISP</CardTitle>
+                  <CardTitle className="text-base font-bold">Mitra Konektivitas Mandiri per ISP</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="h-[300px] overflow-y-auto">
@@ -595,7 +595,7 @@ export default function BumdesPage() {
 
               <Card className="border-0 shadow-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-bold">BUMDes per Kabupaten</CardTitle>
+                  <CardTitle className="text-base font-bold">Mitra Konektivitas Mandiri per Kabupaten</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="overflow-x-auto">
@@ -627,7 +627,7 @@ export default function BumdesPage() {
             {stats.semuaPelanggan.length > 0 && (
               <Card className="border-0 shadow-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-base font-bold">BUMDes Berdasarkan Total Pelanggan</CardTitle>
+                  <CardTitle className="text-base font-bold">Mitra Konektivitas Mandiri Berdasarkan Total Pelanggan</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="overflow-y-auto max-h-[320px] space-y-3 pr-2">
@@ -659,10 +659,10 @@ export default function BumdesPage() {
                   {/* KIRI: Judul */}
                   <div>
                     <CardTitle className="text-base font-bold">
-                      Detail Semua BUMDes
+                      Detail Semua Mitra Konektivitas Mandiri
                     </CardTitle>
                     <CardDescription>
-                      Data lengkap {filteredSearchData.length} BUMDes
+                      Data lengkap {filteredSearchData.length} Mitra Konektivitas Mandiri
                     </CardDescription>
                   </div>
 
@@ -687,7 +687,7 @@ export default function BumdesPage() {
                         <TableHead className="text-[11px]">Status Warning</TableHead>
                         <TableHead className="text-[11px]">Masa Kontrak</TableHead>
                         <TableHead className="text-[11px]">Tgl Perpanjangan</TableHead>
-                        <TableHead className="text-[11px]">Nama BUMDes</TableHead>
+                        <TableHead className="text-[11px]">Nama Mitra Konektivitas Mandiri</TableHead>
                         <TableHead className="text-[11px]">Kabupaten</TableHead>
                         <TableHead className="text-[11px]">Provinsi</TableHead>
                         <TableHead className="text-[11px]">ISP</TableHead>
@@ -876,7 +876,7 @@ export default function BumdesPage() {
                   <div className="flex items-center gap-2">
                     <FileText className="h-5 w-5 text-primary" />
                     <CardTitle className="text-base font-bold">
-                      Kelengkapan Dokumen BUMDes
+                      Kelengkapan Dokumen Mitra Konektivitas Mandiri
                     </CardTitle>
                   </div>
 
@@ -898,8 +898,8 @@ export default function BumdesPage() {
                       <TableRow>
                         <TableHead></TableHead>
                         <TableHead className="text-[11px] font-bold">No</TableHead>
-                        <TableHead className="text-[11px] font-bold">Nama BUMDes</TableHead>
-                        <TableHead className="text-[11px] font-bold">PIC BUMDes</TableHead>
+                        <TableHead className="text-[11px] font-bold">Nama Mitra Konektivitas Mandiri</TableHead>
+                        <TableHead className="text-[11px] font-bold">PIC Mitra Konektivitas Mandiri</TableHead>
                         <TableHead className="text-[11px] font-bold">PIC ISP</TableHead>
                         <TableHead className="text-[11px] font-bold">Status Berkas</TableHead>
                       </TableRow>
@@ -975,7 +975,7 @@ export default function BumdesPage() {
                                       {/* ================= BUMDES ================= */}
                                       <div className="border rounded-lg p-3 bg-white">
                                         <p className="text-xs font-semibold mb-2 flex items-center gap-2">
-                                          📁 Berkas BUMDes
+                                          📁 Berkas Mitra Konektivitas Mandiri
                                         </p>
 
                                         <div className="space-y-2 text-xs">
