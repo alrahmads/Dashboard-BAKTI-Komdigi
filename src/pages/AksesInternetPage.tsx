@@ -735,7 +735,7 @@ export default function AksesInternetPage() {
         <Card className="border-0 shadow-sm">
           <CardHeader className="pb-2">
             <CardTitle className="text-base font-bold">Jumlah Lokasi menurut Kabupaten dan Utilitas</CardTitle>
-            <CardDescription>Top 10 kabupaten berdasarkan jumlah lokasi</CardDescription>
+            <CardDescription>Top 10 kabupaten berdasarkan jumlah lokasi & utilitas</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={400}>
