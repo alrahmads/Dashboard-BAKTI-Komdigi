@@ -696,7 +696,7 @@ export default function AksesInternetPage() {
 
                 <YAxis tick={{ fontSize: 11 }} />
                 <Tooltip
-                  formatter={(value: number) => `${value} Mbps`}
+                  formatter={(value: number) => `${value} Kbps`}
                 />
 
                 <Legend wrapperStyle={{ fontSize: "14px" }} />
