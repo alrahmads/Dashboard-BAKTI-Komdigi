@@ -152,7 +152,7 @@ export default function OverviewPage() {
           <StatCard title="Total Lokasi Internet Termonitoring" value={stats.totalAkses} icon={Wifi} change={12} variant="accent" />
           <StatCard title="Total Mitra Konektivitas Mandiri" value={stats.totalBumdes} icon={Building2} variant="primary" />
           <StatCard title="Mitra Konektivitas Mandiri (Serving)" value={stats.servingBumdes} icon={Globe} variant="secondary" />
-          <StatCard title="Mitra Konektivitas Mandiri (Warning)" value={stats.warningBumdes} icon={AlertTriangle} variant="warning" />
+          <StatCard title="Mitra Konektivitas Mandiri (Perlu Perhatian)" value={stats.warningBumdes} icon={AlertTriangle} variant="warning" />
           <StatCard title="Total Pelanggan" value={stats.totalPelanggan} icon={Users} variant="accent" subtitle="Dari semua Mitra Konektivitas Mandiri" />
         </div>
 
