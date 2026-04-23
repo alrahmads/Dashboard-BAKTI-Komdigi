@@ -149,11 +149,11 @@ export default function OverviewPage() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <StatCard title="Total Lokasi Internet" value={stats.totalAkses} icon={Wifi} change={12} variant="accent" />
-          <StatCard title="Total BUMDes" value={stats.totalBumdes} icon={Building2} variant="primary" />
-          <StatCard title="BUMDes Serving" value={stats.servingBumdes} icon={Globe} variant="secondary" />
-          <StatCard title="BUMDes Warning" value={stats.warningBumdes} icon={AlertTriangle} variant="warning" />
-          <StatCard title="Total Pelanggan" value={stats.totalPelanggan} icon={Users} variant="accent" subtitle="Dari semua BUMDes" />
+          <StatCard title="Total Lokasi Internet Termonitoring" value={stats.totalAkses} icon={Wifi} change={12} variant="accent" />
+          <StatCard title="Total Mitra Konektivitas Mandiri" value={stats.totalBumdes} icon={Building2} variant="primary" />
+          <StatCard title="Mitra Konektivitas Mandiri (Serving)" value={stats.servingBumdes} icon={Globe} variant="secondary" />
+          <StatCard title="Mitra Konektivitas Mandiri (Warning)" value={stats.warningBumdes} icon={AlertTriangle} variant="warning" />
+          <StatCard title="Total Pelanggan" value={stats.totalPelanggan} icon={Users} variant="accent" subtitle="Dari semua Mitra Konektivitas Mandiri" />
         </div>
 
         {/* Row: Utilitas + Warning */}
