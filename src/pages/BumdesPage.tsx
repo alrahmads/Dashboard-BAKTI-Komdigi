@@ -199,7 +199,7 @@ export default function BumdesPage() {
         { key: "logoIsp" },
         { key: "ktpDirekturIsp" },
         { key: "companyProfile" },
-        { key: "rfi" },
+        { key: "dokumenRKUB" },
       ];
 
       const pksDocs = [
@@ -259,9 +259,9 @@ export default function BumdesPage() {
     "logoIsp",
     "ktpDirekturIsp",
     "companyProfile",
-    "rfi",
+    "dokumenRKUB",
 
-    "tglRkub",
+    "dokumenRKUB",
     "dokumenPks",
     "perpanjanganPks1",
     "dokumenPerpanjanganPks1",
@@ -1034,7 +1034,7 @@ export default function BumdesPage() {
                                             { label: "Logo ISP", link: latest.logoIsp },
                                             { label: "KTP Direktur ISP", link: latest.ktpDirekturIsp },
                                             { label: "Company Profile", link: latest.companyProfile },
-                                            { label: "RFI", link: latest.rfi },
+                                            { label: "RFI/RKUB", link: latest.dokumenRKUB },
                                           ].map((doc, idx) => (
                                             <div key={idx} className="flex justify-between items-center border rounded px-2 py-1">
                                               <span>{doc.label}</span>
@@ -1069,7 +1069,7 @@ export default function BumdesPage() {
                                         <div className="space-y-2 text-xs">
 
                                           {[
-                                            { label: "RKUB", link: latest.tglRkub },
+                                            // { label: "RKUB", link: latest.dokumenRKUB },
                                             { label: "Dokumen PKS", link: latest.dokumenPks },
 
                                             { label: "Perpanjangan PKS 1", link: latest.perpanjanganPks1 },
@@ -1193,7 +1193,7 @@ export default function BumdesPage() {
                                                             { label: "Logo ISP", link: h.logoIsp },
                                                             { label: "KTP Direktur ISP", link: h.ktpDirekturIsp },
                                                             { label: "Company Profile", link: h.companyProfile },
-                                                            { label: "RFI", link: h.rfi },
+                                                            { label: "RFI/RKUB", link: h.dokumenRKUB },
                                                           ].map((doc, i) => (
                                                             <div key={i} className="flex justify-between items-center border rounded px-2 py-1">
                                                               <span>{doc.label}</span>
