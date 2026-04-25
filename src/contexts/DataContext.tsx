@@ -227,7 +227,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
               logoIsp: d["Logo ISP"] || "",
               ktpDirekturIsp: d["KTP DIREKTUR ISP"] || "",
               companyProfile: d["COMPANY PROFILE ISP"] || "",
-              rfi: d["RFI"] || "",
+              dokumenRKUB: d["Dokumen RFI/RKUB"] || "",
 
               // metadata
               jumlahAksesPoint:
