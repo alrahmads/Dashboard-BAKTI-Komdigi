@@ -131,14 +131,6 @@ export default function BumdesPage() {
     return grouped;
   }, [data]);
 
-  // const getWarningLevel = (daysLeft: number | null) => {
-  //   if (daysLeft === null || isNaN(daysLeft)) return "Tidak Diketahui";
-
-  //   if (daysLeft < 0) return "Expired";
-  //   if (daysLeft <= 30) return "Warning";
-  //   return "Aktif";
-  // };
-
   const sortedData = [...latestBumdesData].sort((a, b) => {
     const aDays = a.daysLeft ?? Number.POSITIVE_INFINITY;
     const bDays = b.daysLeft ?? Number.POSITIVE_INFINITY;
@@ -261,7 +253,6 @@ export default function BumdesPage() {
     "companyProfile",
     "dokumenRKUB",
 
-    "dokumenRKUB",
     "dokumenPks",
     "perpanjanganPks1",
     "dokumenPerpanjanganPks1",
@@ -757,12 +748,9 @@ export default function BumdesPage() {
 
                               {/* Tgl Perpanjangan */}
                               <TableCell className="text-xs">
-                                {(() => {
-                                  const latest = getLatestPksDate(b);
-                                  return latest
-                                    ? latest.toLocaleDateString("id-ID")
-                                    : "-";
-                                })()}
+                                {b.effectiveExpiryDate
+                                  ? new Date(b.effectiveExpiryDate).toLocaleDateString("id-ID")
+                                  : "-"}
                               </TableCell>
 
                               {/* Nama */}
