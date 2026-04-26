@@ -27,6 +27,8 @@ export interface AksesRecord {
   bandwidth: number;
   penyedia: string;
   tools: string;
+  tindakLanjut: string;
+  pelaksanaan: string;
   downloadAP2: number;
   uploadAP2: number;
 }

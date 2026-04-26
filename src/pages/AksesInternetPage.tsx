@@ -73,6 +73,8 @@ export default function AksesInternetPage() {
     aiMandiri: "Semua",
     aiGanda: "Semua",
     bantuanUSO: "Semua",
+    tindakLanjut: "Semua",
+    pelaksanaan: "Semua",
     lat: "Semua",
     lng: "Semua",
   });
@@ -90,6 +92,8 @@ export default function AksesInternetPage() {
       aiMandiri: "Semua",
       aiGanda: "Semua",
       bantuanUSO: "Semua",
+      tindakLanjut: "Semua",
+      pelaksanaan: "Semua",
       lat: "Semua",
       lng: "Semua",
     });
@@ -331,6 +335,8 @@ export default function AksesInternetPage() {
         aiMandiri: "Semua",
         aiGanda: "Semua",
         bantuanUSO: "Semua",
+        tindakLanjut: "Semua",
+        pelaksanaan: "Semua",
         lat: "Semua",
         lng: "Semua",
       });
@@ -387,7 +393,9 @@ export default function AksesInternetPage() {
       (tableFilters.tools === "Semua" || r.tools === tableFilters.tools) &&
       (tableFilters.aiMandiri === "Semua" || r.layananAiMandiri === tableFilters.aiMandiri) &&
       (tableFilters.aiGanda === "Semua" || r.layananAiGanda === tableFilters.aiGanda) &&
-      (tableFilters.bantuanUSO === "Semua" || r.bantuanGandaUSO === tableFilters.bantuanUSO);
+      (tableFilters.bantuanUSO === "Semua" || r.bantuanGandaUSO === tableFilters.bantuanUSO) &&
+      (tableFilters.tindakLanjut === "Semua" || r.tindakLanjut === tableFilters.tindakLanjut) &&
+      (tableFilters.pelaksanaan === "Semua" || r.pelaksanaan === tableFilters.pelaksanaan);
 
     return matchSearch && matchFilter;
   });
@@ -1257,6 +1265,42 @@ export default function AksesInternetPage() {
                     </select>
                   </TableHead>
 
+                  <TableHead>
+                    <select
+                      className="text-xs border rounded px-1"
+                      value={tableFilters.tindakLanjut}
+                      onChange={(e)=>
+                        setTableFilters({
+                          ...tableFilters,
+                          tindakLanjut:e.target.value
+                        })
+                      }
+                    >
+                      <option value="Semua">Tindak Lanjut</option>
+                      {[...new Set(data.map(d => d.tindakLanjut))].map(v => (
+                        <option key={v}>{v}</option>
+                      ))}
+                    </select>
+                  </TableHead>
+
+                  <TableHead>
+                    <select
+                      className="text-xs border rounded px-1"
+                      value={tableFilters.pelaksanaan}
+                      onChange={(e)=>
+                        setTableFilters({
+                          ...tableFilters,
+                          pelaksanaan:e.target.value
+                        })
+                      }
+                    >
+                      <option value="Semua">Pelaksanaan</option>
+                      {[...new Set(data.map(d => d.pelaksanaan))].map(v => (
+                        <option key={v}>{v}</option>
+                      ))}
+                    </select>
+                  </TableHead>
+
                   <TableHead>Link Laporan</TableHead>
 
                 </TableRow>
@@ -1302,14 +1346,31 @@ export default function AksesInternetPage() {
                       </Badge>
                     </TableCell>
 
-                    <TableCell>{r.rekomendasi}</TableCell>
-                    <TableCell>{r.skema}</TableCell>
-                    
-                    <TableCell>{r.tools}</TableCell>
-                    <TableCell>{r.layananAiMandiri}</TableCell>
-                    <TableCell>{r.layananAiGanda}</TableCell>
-                    <TableCell>{r.bantuanGandaUSO}</TableCell>
+                    <TableCell className="text-center">
+                      {r.rekomendasi}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.skema}
+                    </TableCell>
 
+                    <TableCell className="text-center">
+                      {r.tools}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.layananAiMandiri}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.layananAiGanda}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.bantuanGandaUSO}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.tindakLanjut}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {r.pelaksanaan}
+                    </TableCell>
                     {/* LINK */}
                     <TableCell>
                       {r.linkLaporan ? (

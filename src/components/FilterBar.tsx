@@ -20,9 +20,6 @@ export function FilterBar() {
   const provinsiList = getUniqueValues(filteredByTahun, "provinsi");
   const kabupatenList = getKabupatenByProvinsi(filteredByTahun, filters.provinsi);
   const kecamatanList = getKecamatanByKabupaten(filteredByTahun, filters.kabupaten);
-  // const provinsiList = getUniqueValues(aksesData, "provinsi");
-  // const kabupatenList = getKabupatenByProvinsi(aksesData, filters.provinsi);
-  // const kecamatanList = getKecamatanByKabupaten(aksesData, filters.kabupaten);
   const tahunList = getUniqueValues(aksesData, "tahun");
   // console.log("DATA TAHUN:", aksesData.slice(0,5));
 

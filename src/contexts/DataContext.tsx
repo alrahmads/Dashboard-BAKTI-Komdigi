@@ -62,7 +62,11 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
             uploadAP2: parseFloat(d["Kecepatan Upload (Kbps) AP 2"]) || 0,
 
             kualitasAkses: d["Kualitas Akses Internet"] || "",
-            
+
+            tindakLanjut: d["Tindak Lanjut"]?.trim() || "-",
+
+            pelaksanaan: d["Pelaksanaan"] || "",
+
             lat: d["Koordinat Lintang (Data di Lapangan)"]
               ? Number(String(d["Koordinat Lintang (Data di Lapangan)"]).replace(",", ".").trim())
               : null,
