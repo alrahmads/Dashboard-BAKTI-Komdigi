@@ -12,6 +12,7 @@ import { Progress } from "@/components/ui/progress";
 import { MapContainer, TileLayer, CircleMarker, Tooltip as LeafletTooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
+import { useFilters } from "@/contexts/FilterContext";
 import { useMap } from "react-leaflet";
 import {
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend,
@@ -60,6 +61,8 @@ function FitBounds({ data }: { data: any[] }) {
 }
 
 export default function AksesInternetPage() {
+  const { filters } = useFilters();
+
   const data = useFilteredAkses();
   const allAkses = useAllAksesData();
   const [search, setSearch] = useState("");
@@ -113,15 +116,54 @@ export default function AksesInternetPage() {
     const avgUl = total > 0 ? data.reduce((s, r) => s + r.uploadMbps, 0) / total : 0;
 
     // YoY simulated comparisons
-    const prevTotal = Math.round(allAkses.length * 0.983);
-    const prevAvgBw = 6.19;
-    const prevAvgDl = 6.49;
-    const prevAvgUl = 4.52;
+    // ===================================
+    // REAL YEAR OVER YEAR COMPARISON
+    // ===================================
 
-    const changePctTotal = prevTotal > 0 ? ((total - prevTotal) / prevTotal * 100) : 0;
-    const changePctBw = prevAvgBw > 0 ? ((avgBw - prevAvgBw) / prevAvgBw * 100) : 0;
-    const changePctDl = prevAvgDl > 0 ? ((avgDl - prevAvgDl) / prevAvgDl * 100) : 0;
-    const changePctUl = prevAvgUl > 0 ? ((avgUl - prevAvgUl) / prevAvgUl * 100) : 0;
+    const selectedYear = filters.tahun;
+    const showComparison = selectedYear !== "Semua";
+
+    const prevYear = Number(selectedYear) - 1;
+
+    const prevData = allAkses.filter(
+      (r) => String(r.tahun) === String(prevYear)
+    );
+
+    const hasPrevData = prevData.length > 0;
+
+    const prevTotal = hasPrevData ? prevData.length : 0;
+
+    const prevAvgBw = hasPrevData
+      ? prevData.reduce((s, r) => s + r.bandwidth, 0) / prevData.length
+      : 0;
+
+    const prevAvgDl = hasPrevData
+      ? prevData.reduce((s, r) => s + r.downloadMbps, 0) / prevData.length
+      : 0;
+
+    const prevAvgUl = hasPrevData
+      ? prevData.reduce((s, r) => s + r.uploadMbps, 0) / prevData.length
+      : 0;
+
+    const changePctTotal =
+      showComparison && prevTotal > 0
+        ? ((total - prevTotal) / prevTotal) * 100
+        : null;
+
+    const changePctBw =
+      showComparison && prevAvgBw > 0
+        ? ((avgBw - prevAvgBw) / prevAvgBw) * 100
+        : null;
+
+    const changePctDl =
+      showComparison && prevAvgDl > 0
+        ? ((avgDl - prevAvgDl) / prevAvgDl) * 100
+        : null;
+
+    const changePctUl =
+      showComparison && prevAvgUl > 0
+        ? ((avgUl - prevAvgUl) / prevAvgUl) * 100
+        : null;
 
     // 🔥 AVG SPEED PER TOOLS
     const toolsMap: Record<string, any> = {};
@@ -417,11 +459,27 @@ export default function AksesInternetPage() {
 
         {/* Stats Row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard title="Total Lokasi Layanan Termonitoring" value={stats.total} icon={Wifi} change={+stats.changePctTotal.toFixed(1)} variant="accent" />
-          <StatCard title="Rata-rata Bandwidth" value={`${stats.avgBw.toFixed(2)} Mbps`} icon={Activity} change={+stats.changePctBw.toFixed(1)} variant="primary" />
-          <StatCard title="Rata-rata Download AP 1" value={`${stats.avgDl.toFixed(2)} Kbps`} icon={Download} change={+stats.changePctDl.toFixed(1)} variant="secondary" />
-          <StatCard title="Rata-rata Upload AP 1" value={`${stats.avgUl.toFixed(2)} Kbps`} icon={TrendingUp} change={+stats.changePctUl.toFixed(1)} variant="warning" />
-        </div>
+          <StatCard title="Total Lokasi Layanan Termonitoring" value={stats.total} icon={Wifi} change={
+          stats.changePctTotal !== null
+            ? +stats.changePctTotal.toFixed(1)
+            : undefined
+        } variant="accent" />
+                  <StatCard title="Rata-rata Bandwidth" value={`${stats.avgBw.toFixed(2)} Mbps`} icon={Activity} change={
+          stats.changePctBw !== null
+            ? +stats.changePctBw.toFixed(1)
+            : undefined
+        } variant="primary" />
+                  <StatCard title="Rata-rata Download AP 1" value={`${stats.avgDl.toFixed(2)} Kbps`} icon={Download} change={
+          stats.changePctDl !== null
+            ? +stats.changePctDl.toFixed(1)
+            : undefined
+        } variant="secondary" />
+                  <StatCard title="Rata-rata Upload AP 1" value={`${stats.avgUl.toFixed(2)} Kbps`} icon={TrendingUp} change={
+          stats.changePctUl !== null
+            ? +stats.changePctUl.toFixed(1)
+            : undefined
+        } variant="warning" />
+                </div>
 
         {/* Utilitas count cards */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
